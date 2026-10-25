@@ -9,6 +9,8 @@
  */
 
 import { DOMParser } from '@xmldom/xmldom';
+// 浏览器文件管理页：pnpm build 生成的单文件 HTML，作为 Text 模块内联（见 wrangler.toml 的 rules）
+import BROWSER_UI from '../dist-web/index.html';
 
 export interface Env {
 	// Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
@@ -728,6 +730,14 @@ async function handle_get(request: Request, bucket: R2Bucket): Promise<Response>
 			if (resource === null || resource.customMetadata?.resourcetype !== '<collection />') {
 				return new Response('Not Found', { status: 404 });
 			}
+		}
+
+		// 浏览器打开目录时返回文件管理页（数据由页面自己用 PROPFIND 拉）；其他客户端仍拿到原来的简单列表
+		if ((request.headers.get('Accept') ?? '').includes('text/html')) {
+			return new Response(BROWSER_UI, {
+				status: 200,
+				headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache' },
+			});
 		}
 
 		let page = '',

@@ -12,3 +12,9 @@ bucket_name = "r2-webdav"
 [observability]
 enabled = true
 head_sampling_rate = 1
+
+# 浏览器文件管理页（dist-web/index.html）作为字符串内联进脚本
+[[rules]]
+type = "Text"
+globs = ["**/*.html"]
+fallthrough = false

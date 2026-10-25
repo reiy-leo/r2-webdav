@@ -6,6 +6,17 @@ Use Cloudflare Workers to provide a WebDav interface for Cloudflare R2.
 
 Currently the server advertises WebDAV Class 1 and Class 2 (LOCK/UNLOCK) support.
 
+## Rei 的部署（r.rei8t.dev）
+
+这个 fork 部署在 https://r.rei8t.dev，用 pnpm 管理依赖。浏览器直接打开就是文件管理页（React + Cloudflare Kumo），可以上传、新建文件夹、重命名、删除、下载；WebDAV 客户端照常连接。
+
+```sh
+pnpm install
+pnpm run deploy   # 先构建界面，再 wrangler deploy
+```
+
+更多说明见 [AGENTS.md](AGENTS.md)。
+
 ## Usage
 
 Change wrangler.toml to your own.

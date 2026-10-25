@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>R2 WebDAV</title>
+    <link rel="icon" type="image/png" href="https://m.rei8t.dev/i/jTleOJyB.png" />
+    <link rel="apple-touch-icon" href="https://m.rei8t.dev/i/jTleOJyB.png" />
+    <script>
+      // 先按 localStorage（r2dav-theme = light | dark，缺省跟随系统）设好明暗，避免闪一下
+      (function () {
+        var m = window.matchMedia("(prefers-color-scheme: dark)");
+        var set = function () {
+          var p = null;
+          try { p = localStorage.getItem("r2dav-theme"); } catch (e) {}
+          var dark = p === "dark" || (p !== "light" && m.matches);
+          document.documentElement.dataset.mode = dark ? "dark" : "light";
+          document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        };
+        set();
+        m.addEventListener("change", set);
+      })();
+    </script>
+  </head>
+  <body class="bg-kumo-canvas text-kumo-default">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

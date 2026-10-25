@@ -170,3 +170,7 @@ dist
 
 .dev.vars
 .wrangler/
+
+# 浏览器页面构建产物（pnpm build 生成）
+/dist-web/
+.dev.vars
