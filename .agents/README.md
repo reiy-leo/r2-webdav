@@ -1,6 +1,6 @@
 # .agents/
 
-给 AI 编程助手（Codex、Claude Code、Cursor、Hark 等）用的项目资料。入口是根目录的 `AGENTS.md`。
+给 AI 编程助手（Codex、Claude Code、Cursor、Hark 等）用的项目资料。入口是根目录的 `AGENTS.md`，项目现状先看 `status.md`。
 
 | 目录 | 放什么 |
 | --- | --- |

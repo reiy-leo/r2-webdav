@@ -1,5 +1,7 @@
 # AGENTS.md
 
+> 新 session 先读 `.agents/status.md`：项目进度、没做完的事、代码地图都在那里。
+
 r2-webdav：Rei 的个人 WebDAV 服务，部署在 https://r.rei8t.dev。Cloudflare Worker 做 WebDAV 协议层，文件存在 R2。fork 自 [abersheeran/r2-webdav](https://github.com/abersheeran/r2-webdav)（Apache-2.0）。
 
 ## 目标和边界
